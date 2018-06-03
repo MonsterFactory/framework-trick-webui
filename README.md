@@ -63,6 +63,9 @@ Trick
 初始化Christmas菜单，在终端进入Christmas文件夹并输入以下指令（windows，linux路劲自行调整）
 ruby .\Christmas.rb .\Menu\MakeMenu\
 
+如果对Christmas有兴趣，请打开
+https://github.com/MonsterFactory/tools-christmas-codegenerator
+
 -----------
 # 二、Prop(开发环境代码)
 Prop为开发环境工程代码，这部分代码需要编写，其中，Page和Control的模板可以通过代码生成器`Christmas`生成。
