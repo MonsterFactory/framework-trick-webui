@@ -1,0 +1,8 @@
+{
+    "targetDir":"../Prop",
+    "waitInputParam":"@@",
+    "templ":"templ",
+    "documentPath":{
+        "document":"./Input/MakeCodeNormal/Trick-Page/Template/document.templ"
+    }
+}

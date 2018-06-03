@@ -1,0 +1,25 @@
+.DrawingBoard_Body{
+    position: absolute;
+    height: 100%;
+}
+
+#id_DrawingBoard_Container {
+    position: fixed;
+}
+
+#id_DrawingBoard_Body {
+    padding:0px;
+}
+
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}

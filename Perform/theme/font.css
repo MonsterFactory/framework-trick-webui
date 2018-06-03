@@ -1,0 +1,47 @@
+.Font_BigTitleColor{
+    color:#eee;
+}
+
+.Font_BigTitleSize{
+    font-size: 280px;
+}
+
+.Font_TitleColor{
+    color:#ccc;
+}
+
+.Font_TitleSize{
+    font-size: 80px;
+}
+
+.Font_TextColor{
+    color: #eee;
+}
+
+.Font_TextSize{
+    font-size: 30px;
+}
+
+.Font_InfoColor{
+
+}
+
+.Font_InfoSize{
+    
+}
+
+.Font_ReadMoreLink{
+    color: #a5a5a5;
+    cursor:pointer;
+}
+
+.Font_ReadMoreLink:hover{
+    color: #ff2222;
+    text-decoration:none;
+}
+
+/********Unique project********/
+
+/* .FontUnique_InfoColor{} */
+
+/********Unique project********/

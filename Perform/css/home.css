@@ -1,0 +1,69 @@
+
+.DrawingBoard_Body{
+    position: absolute;
+    height: 100%;
+}
+
+#id_DrawingBoard_Container {
+    position: fixed;
+}
+
+#id_DrawingBoard_Body {
+    padding:0px;
+}
+
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+.TextBoard_Body{
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.TextBoard_BigTitle{
+    width: 100%;
+    text-shadow:5px 2px 6px #0000003b;
+}
+
+.TextBoard_subTitle{
+    width: 100%;
+    text-align: right;
+    text-shadow:0px 0px 6px #0000001f;
+}
+.Footer_Body{
+    height: 46px;
+}
+
+.Footer_Info{
+    padding-top: 12px;
+}
+
+.Footer_Info_Margining{
+    margin:0px;
+}
+body{
+    position: absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+}
+
+.Page_DrawingBoard{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+

@@ -1,0 +1,116 @@
+######JS######
+var PageLoad = function(){
+    moduleLoad(null, '../../Common/JSModule/', PageLoad_Lib)
+}
+
+var PageLoad_Lib = function(){
+    lib_Load('../../Common/Lib/', PageLoad_Service)
+}
+
+var PageLoad_Service = function(){
+    serviceLoad('../../Service/', PageLoad_Control)
+}
+
+var PageLoad_Control = function(){
+    DebuggingTools_InsertControl(PageInitialize)
+}
+
+/*@@@@@@page-start@@@@@@*/
+
+var PageInitialize = function(){
+    /*write your code*/
+    console.log("\n**Your page code start!");
+    
+    PageLoadFinish();
+}
+
+var PageLoadFinish = function(){
+    //end loading img
+    Common_loadingEnd();
+
+    /*write your code*/
+}
+
+var LoadData = function(){
+    /*write your code*/
+}
+
+/****Notes****/
+/****Notes****/
+
+/*@@@@@@page-end@@@@@@*/
+######JS######
+
+######HTML######
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="../../Common/BasicDependence/bootstrap/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--Theme Css start-->
+      <link href="../../Common/Theme/font.css" rel="stylesheet">
+      <link href="../../Common/Theme/theme.css" rel="stylesheet">
+    <!--Theme Css end-->
+
+    <!--self Css start-->
+      <link href="Layout.css" rel="stylesheet">
+    <!--self Css end-->
+    
+    <!--lib Css start-->
+      <link href="" rel="stylesheet">
+    <!--lib Css end-->
+
+    <!--Control self lib css-->
+  </head>
+  <body onload="PageLoad()">
+
+    <!--######Layout######-->
+    <div class="Theme_Loading">
+      <img class="Theme_center-center" src="../../Common/Img/loading.gif"></div>
+    </div>
+    <!--######Layout######-->
+
+    <!-- Control Read Place -->
+    <iframe src="" id="iframeControl" style="display:none"></iframe>
+
+  </body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--Basic dependence js（Not recommend modification）-->
+      <script src="../../Common/BasicDependence/jquery/jquery.min.js"></script>
+      <script src="../../Common/BasicDependence/bootstrap/js/bootstrap.min.js"></script>
+    <!--Basic dependence js-->
+
+    <!--Control self lib js-->
+
+    <!--Debugging Tools import（It can't be changed）-->
+      <script src="../../Common/DebuggingTools/DebuggingTools.js"></script>
+      <script src="../../Common/JSModule/import.js"></script>
+      <script src="../../Common/DebuggingTools/IncludeModule.js"></script>
+      <script src="../../Common/Lib/import.js"></script>
+      <script src="../../Common/DebuggingTools/IncludeLib.js"></script>
+      <script src="../../Service/imports.js"></script>
+      <script src="../../Common/DebuggingTools/IncludeService.js"></script>
+    <!--Debugging Tools import-->
+
+    <script src="../../Common/Config/Config.js"></script>
+    <script src="./dispose.js"></script>
+  
+</html>
+######HTML######
+
+######CSS######
+######CSS######
