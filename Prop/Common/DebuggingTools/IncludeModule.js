@@ -45,7 +45,7 @@ var Module_Include = function(){
 
 function moduleLoad(param, pathUrl, callBackFunction){
     console.log("Trick framework v1.0");
-    console.log("gitHub:");
+    console.log("gitHub:https://github.com/MonsterFactory/framework-trick-webui/tree/master/Christmas");
     console.log("               ---Designed by Daniel.Leung.");
     console.log("");
     moduleConfig['controlJs'] = param;

@@ -256,6 +256,8 @@ serviceStart("/neucut/compound", postData, "POST", returnCompose)
 
 另外，框架默认引用`common/common.js`文件，此文件为共通的一些函数，开发者可自行改动或者引用里面的方法，添加方法时，请以Common_开头。
 
+vuejs和angularjs的依赖文件可以在此处添加，添加后即可支持vuejs或者angularjs
+
 ### 2.5 设置主题
 /Prop/Common/Theme中有font.css（字体）和theme.css（颜色等）文件，这两个文件是主题的配置,Control和Page中都可以引用。开发者可自行修改或者添加，请以Theme_或者Font_开头
 
