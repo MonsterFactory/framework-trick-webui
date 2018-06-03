@@ -58,6 +58,11 @@ Trick
 `Christmas` 代码生成器需要依赖Ruby运行环境，所以需要搭建ruby运行环境，以下手顺为window环境
 `http://www.runoob.com/ruby/ruby-installation-windows.html`，安装版本需要是2.2以上。
 
+### 1.4 初始化Christmas菜单
+1.3的ruby环境配置结束后
+初始化Christmas菜单，在终端进入Christmas文件夹并输入以下指令（windows，linux路劲自行调整）
+ruby .\Christmas.rb .\Menu\MakeMenu\
+
 -----------
 # 二、Prop(开发环境代码)
 Prop为开发环境工程代码，这部分代码需要编写，其中，Page和Control的模板可以通过代码生成器`Christmas`生成。
