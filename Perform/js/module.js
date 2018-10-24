@@ -113,17 +113,18 @@ var FileUpload = function(param) {
     FileUpload_Config['return'] = param['return'];
     FileUpload_Config['url'] = param['url'];
     FileUpload_Config['data'] = param['data'];
+    FileUpload_Config['id'] = param['id']?param['id']:"";
 
     try {
         var formData = new FormData();
-		formData.append("myfile", FileUpload_Config['data']); 
+		formData.append("file", FileUpload_Config['data']);
         if(window.XMLHttpRequest){  //要是支持XMLHttpRequest的则采用XMLHttpRequest生成对象  
             FileUpload_xhr=new XMLHttpRequest();  
         }else if(window.ActiveXobiect){//要是支持win的ActiveXobiect则采用ActiveXobiect生成对象。  
             FileUpload_xhr=new ActiveXobiect('Microsoft.XMLHTTP');  
         }
 
-        FileUpload_xhr.upload.addEventListener("progress", FileUpload_uploadProgress, false);
+        FileUpload_xhr.upload.addEventListener("progress", function(e) {FileUpload_uploadProgress(e, FileUpload_Config['id'])}, false);
         FileUpload_xhr.onreadystatechange=FileUpload_state_Change; 
         FileUpload_xhr.open("POST", FileUpload_Config['url'], true);
         //xmlHttp.setRequestHeader("Content-Type", "multipart/form-data; boundary=AaB03x");
@@ -144,10 +145,15 @@ var FileUpload_state_Change = function(){
 }
 
 
-var FileUpload_uploadProgress = function(evt) {
+var FileUpload_uploadProgress = function(evt, id) {
 	if (evt.lengthComputable) {
         var percentComplete = Math.round(evt.loaded * 100 / evt.total);
-        (FileUpload_Config['progress'])(percentComplete);
+        var param = {
+            "progress":percentComplete,
+            "id":id
+        }
+        var notify = FileUpload_Config['progress']
+        notify(param);
 	}
 	else {
         // document.getElementById('progressNumber').innerHTML = '无法上传！';
@@ -158,25 +164,41 @@ var FileUpload_uploadProgress = function(evt) {
 }
 
 var HttpPost = function(param) {
-    console.log(param['url'])
     try {
-         $.ajax({
-            //提交数据的类型 POST GET
-            type:param['submitWay'],
-            url:param['url'],
-            contentType: "application/json",
-            datatype: "json",
-            data:JSON.stringify(param['data']),    
-            success:function(data){
-                param['return'](data);
-            },
-            complete: function(XMLHttpRequest, textStatus){
+         if(param['submitWay'] != "GET") {
+             $.ajax({
+                 //提交数据的类型 POST GET
+                 type: param['submitWay'],
+                 url: param['url'],
+                 contentType: "application/json",
+                 datatype: "json",
+                 data: JSON.stringify(param['data']),
+                 success: function (data) {
+                     param['return'](data);
+                 },
+                 complete: function (XMLHttpRequest, textStatus) {
 
-            },
-            error: function(){
-                alert('服务请求失败，请稍后再试');
-            }         
-         });
+                 },
+                 error: function () {
+                     alert('服务请求失败，请稍后再试');
+                 }
+             });
+         } else {
+             $.ajax({
+                 //提交数据的类型 POST GET
+                 type: param['submitWay'],
+                 url: param['url'],
+                 success: function (data) {
+                     param['return'](data);
+                 },
+                 complete: function (XMLHttpRequest, textStatus) {
+
+                 },
+                 error: function () {
+                     alert('服务请求失败，请稍后再试');
+                 }
+             });
+         }
     } catch (e) {
         console.log("HttpPost param error.reason:"+e);
     }
@@ -261,5 +283,5 @@ function moduleStart(module,param,returnFunction){
     return returnParam;
 }
 
-
+
 

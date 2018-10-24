@@ -89,17 +89,21 @@ function Common_bytesToSize(bytes) {
 
 //判断文件类型
 var Common_fileTypes = {
-    "photo":[".png",".jpg",".jpeg",".bmp",".gif"],
-    "video":[".mp4",".MP4",".avi",".AVI"],
-    "audio":[".mp3",".MP3"]
+    "photo":[".png",".jpg",".jpeg",".bmp",".gif",".ico"],
+    "video":[".mp4",".wmv",".avi",".3gp",".ra",".ram",".mkv",".flv",".f4v",".rmvb",".mpg"],
+    "audio":[".mp3",".wav",".wav",".midi",".wma",".ogg",".ape",".flac",".aac"]
 }
 function Common_fileType(fileType){
-    for(var key in Common_fileTypes){
-        if(fileType.extMatch(Common_fileTypes[key])){
-            return key;
+    try {
+        for (var key in Common_fileTypes) {
+            if (fileType.extMatch(Common_fileTypes[key])) {
+                return key;
+            }
         }
+        return "unknown";
+    }catch (e) {
+        return "unknown";
     }
-    return "unknown";
 }
 
 //预览本地图片
@@ -140,11 +144,12 @@ function Common_LocalVideoAudio(fileDom,targetId){
 //将Json变成Url
 function Common_JsonToUrl(data){
     var result = "";
-    for(key in data){
+    for(var key in data){
         result += (key+"="+data[key]+"&");
     }
-    if(result == ""){
-        result = result.substring(0,result.Length - 1)
+
+    if(result != ""){
+        result = result.substring(0,result.length - 1)
     }
     return result;
 }

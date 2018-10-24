@@ -2,7 +2,7 @@ var Config_Service = {
     "Service":'../../..'
 };
 
-var serviceStart = function(url, data, submitWay, returnFunction, progressFunction){
+var serviceStart = function(url, data, submitWay, returnFunction, progressFunction, id){
 
     //Concatenation url
     var tempUrl = url.split("/");
@@ -13,6 +13,9 @@ var Config_Service = {
     }
     
     //add replayId
+    if(submitWay == "GET") {
+        url = url + "?" + Common_JsonToUrl(data)
+    }
     url = formUrl(url)
 
     if(submitWay == "upload"){
@@ -20,7 +23,8 @@ var Config_Service = {
                 "url":url,    //post url，
                 "data":data,
                 "return":returnFunction,      //返回参数
-                "progress":progressFunction
+                "progress":progressFunction,
+                "id":id?id:"",
         }
         FileUpload(param);
     } else { //Http post
@@ -43,6 +47,6 @@ function formUrl(path) {
 	return url;
 }
 
-
-
+
+
 

@@ -10,25 +10,41 @@
 ********************/ 
 /*@@@@@@module-start@@@@@@*/
 var HttpPost = function(param) {
-    console.log(param['url'])
     try {
-         $.ajax({
-            //提交数据的类型 POST GET
-            type:param['submitWay'],
-            url:param['url'],
-            contentType: "application/json",
-            datatype: "json",
-            data:JSON.stringify(param['data']),    
-            success:function(data){
-                param['return'](data);
-            },
-            complete: function(XMLHttpRequest, textStatus){
+         if(param['submitWay'] != "GET") {
+             $.ajax({
+                 //提交数据的类型 POST GET
+                 type: param['submitWay'],
+                 url: param['url'],
+                 contentType: "application/json",
+                 datatype: "json",
+                 data: JSON.stringify(param['data']),
+                 success: function (data) {
+                     param['return'](data);
+                 },
+                 complete: function (XMLHttpRequest, textStatus) {
 
-            },
-            error: function(){
-                alert('服务请求失败，请稍后再试');
-            }         
-         });
+                 },
+                 error: function () {
+                     alert('服务请求失败，请稍后再试');
+                 }
+             });
+         } else {
+             $.ajax({
+                 //提交数据的类型 POST GET
+                 type: param['submitWay'],
+                 url: param['url'],
+                 success: function (data) {
+                     param['return'](data);
+                 },
+                 complete: function (XMLHttpRequest, textStatus) {
+
+                 },
+                 error: function () {
+                     alert('服务请求失败，请稍后再试');
+                 }
+             });
+         }
     } catch (e) {
         console.log("HttpPost param error.reason:"+e);
     }

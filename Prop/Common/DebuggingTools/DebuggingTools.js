@@ -10,7 +10,7 @@ var DebuggingTools_config = {
                             "startTempl":"<!--######",
                             "endTempl":"######-->",
                             "callBackFunction":"",
-                            "startLib":'\\.\\/lib',
+                            "startLib":'\\.\\/lib\\/',
                             "endLib":'\\"'
                         }
 var DebuggingTools_InsertControl = function(callBackFunction){

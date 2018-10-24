@@ -1,5 +1,5 @@
 /*@@@@@@Service-start@@@@@@*/
-var serviceStart = function(url, data, submitWay, returnFunction, progressFunction){
+var serviceStart = function(url, data, submitWay, returnFunction, progressFunction, id){
     /*@@@@@@Service-end@@@@@@*/
     console.log(url)
     console.log(data)
@@ -28,6 +28,9 @@ var serviceStart = function(url, data, submitWay, returnFunction, progressFuncti
     }
     
     //add replayId
+    if(submitWay == "GET") {
+        url = url + "?" + Common_JsonToUrl(data)
+    }
     url = formUrl(url)
 
     if(submitWay == "upload"){
@@ -35,7 +38,8 @@ var serviceStart = function(url, data, submitWay, returnFunction, progressFuncti
                 "url":url,    //post url，
                 "data":data,
                 "return":returnFunction,      //返回参数
-                "progress":progressFunction
+                "progress":progressFunction,
+                "id":id?id:"",
         }
         FileUpload(param);
     } else { //Http post
